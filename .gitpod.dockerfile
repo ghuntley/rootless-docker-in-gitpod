@@ -26,8 +26,9 @@ RUN mkdir -p /home/gitpod/.config/nixpkgs && echo '{ allowUnfree = true; }' >> /
 RUN echo '. /home/gitpod/.nix-profile/etc/profile.d/nix.sh' >> /home/gitpod/.bashrc
 RUN echo 'eval "$(direnv hook bash)"' >> /home/gitpod/.bashrc
 
-# 3. Install rootless docker
+# 3. Give back control
+USER root
+
+# n. Install rootless docker
 RUN curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-# n. Give back control
-USER root
