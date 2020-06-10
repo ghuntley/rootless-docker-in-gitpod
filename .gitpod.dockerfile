@@ -5,7 +5,8 @@ USER root
 
 # 1. Install direnv & git-lfs
 RUN apt-get install direnv \
-                    git-lfs
+                    git-lfs \
+                    uidmap
 
 # 2. Install Nix
 RUN addgroup --system nixbld \
